@@ -145,9 +145,9 @@ clean test
 
 ## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
 
-> К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
+> К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже. Тесткейс на проверку перехода на страницу отзывов через выпадающий список
 <p align="center">
-  <img title="Selenoid Video" src="images/gif/d54cf2c163784ab6.gif">
+  <img title="Selenoid Video" src="images/gif/26ab0f72fd334309.gif">
 </p>
 
 :blue_heart: <a target="_blank" href="https://t.me/YuriyMqa">t.me/dmitrishin13</a>
