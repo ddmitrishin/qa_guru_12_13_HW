@@ -1,44 +1,157 @@
-# Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/%s">allure.autotests.cloud/project/%s</a> (ask admin@qa.guru for access)
+# Автоматизированное тестирование сайта Газпромбанк
 
-# Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
+## :page_with_curl:    Содержание
 
+➠ [Покрытый функционал](#globe_with_meridians-покрытый-функционал)
 
-# USAGE examples
+➠ [Технологический стек](#computer-технологический-стек)
 
-### For run remote tests need fill remote.properties or to pass value:
+➠ [Запуск тестов из терминала](#technologist-запуск-тестов-из-терминала)
 
-* browser (default chrome)
-* browserVersion (default 89.0)
-* browserSize (default 1920x1080)
-* browserMobileView (mobile device name, for example iPhone X)
-* remoteDriverUrl (url address from selenoid or grid)
-* videoStorage (url address where you should get video)
-* threads (number of threads)
+➠ [Удаленный запуск тестов](#удаленный-запуск-тестов)
 
+➠ [Сборка в Jenkins](#-главная-страница-сборки-Jenkins)
 
-Run tests with filled remote.properties:
-```bash
+➠ [Отчет о результатах тестирования в Allure Report](#-отчет-о-результатах-тестирования-в-allure-report)
+
+➠ [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
+
+➠ [Пример запуска теста в Selenoid](#-пример-запуска-теста-в-selenoid)
+## <a name="globe_with_meridians-покрытый-функционал"></a>:globe_with_meridians: Покрытый функционал
+
+### UI
+
+- [x] Проверка открытия страницы по тексту в заголовке
+- [x] Проверка на ошибки в консоль логах страницы
+- [x] Проверка на работу метода "Получение максимальной ставки" на странице вклада
+- [x] Проверка скачивания файла pdf 'Требования к обеспечению на первичном рынке'
+- [x] Проверка наличия фильтра подтверждения по смс в форме обратной связи
+
+## :computer: Технологический стек
+
+<p align="center">
+<img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
+<img width="6%" title="Java" src="images/logo/Java.svg">
+<img width="6%" title="JUnit5" src="images/logo/JUnit5.svg">
+<img width="6%" title="Selenide" src="images/logo/Selenide.svg">
+<img width="6%" title="Gradle" src="images/logo/Gradle.svg">
+<img width="6%" title="GitHub" src="images/logo/GitHub.svg">
+<img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
+<img width="6%" title="Selenoid" src="images/logo/Selenoid.svg">
+<img width="6%" title="Allure Report" src="images/logo/Allure_Report.svg">
+<img width="6%" title="Telegram" src="images/logo/Telegram.svg">
+</p>
+
+```mermaid        
+    stateDiagram-v2
+        State1: START
+        State2: Java & IntelliJ IDEA
+        State3: Selenide & JUnit5
+        State4: Gradle
+        State5: GitHub
+        State6: Jenkins
+        State7: Selenoid
+        State8: Allure Report
+        State9: Telegram
+        State10: STOP
+        State1 --> State2
+        State2 --> State3
+        State3 --> State4
+        State4 --> State5
+        State5 --> State6
+        State6 --> State7
+        State7 --> State8
+        State8 --> State9
+        State9 --> State10
+        note right of State2 : Работа с кодом
+        note left of State3 : Фреймворки
+        note right of State4 : Сборка проекта
+        note left of State5 : Система контроля версий и хостинг проекта
+        note right of State6 : Параметризация и запуск сборки
+        note left of State7 : Контейнеризация
+        note right of State8 : Отчётность
+        note left of State9 : Уведомления
+```
+## :technologist: Запуск тестов из терминала
+
+### Локальный запуск тестов
+
+```
 gradle clean test
 ```
 
-Run tests with not filled remote.properties:
-```bash
-gradle clean -DremoteDriverUrl=https://%s:%s@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
+### Удаленный запуск тестов
+
+```
+clean test
+-Dbrowser=${BROWSER}
+-DbrowserVersion=${BROWSER_VERSION}
+-DbrowserSize=${BROWSER_SIZE}
+-DremoteDriverUrl=https://${REMOTE_DRIVER_URL}/wd/hub/
+-DvideoStorage=https://${REMOTE_DRIVER_URL}/video/
+-Dthreads=${THREADS}
 ```
 
-Serve report:
-```bash
-allure serve build/allure-results
-```
+### Параметры сборки
+
+> <code>BROWSER</code> – браузер, в котором будут выполняться тесты (_по умолчанию - <code>chrome</code>_).
+>
+> <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты (_по умолчанию - <code>1920x1080</code>_).
+>
+> <code>BROWSER_VERSION</code> – версия браузера (_по умолчанию - <code>99</code>_).
+>
+> <code>REMOTE_DRIVER_URL</code> – url селеноида.
+> 
+> <code>THREADS</code> – кол-во потоков для параллельного запуска.
+>
 
 
-###### For further development there are some example tests in src/test/java/cloud.autotests/tests/demowebshop
-* remove @Disabled("...") annotation to run tests
-```bash
-gradle clean demowebshop
-```
 
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
+
+
+## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Главная страница сборки Jenkins
+
+<p align="center">
+  <img src="images/screenshots/main_jenkins.jpeg">
+</p>
+
+## <img width="4%" title="Allure Report" src="images/logo/Allure_Report.svg"> Отчет о результатах тестирования в Allure Report
+
+### :pushpin: Главная страница Allure-отчета
+
+<p align="center">
+<img title="Allure Overview" src="images/screenshots/allure_Overview.jpg">
+</p>
+
+### :pushpin: Страница с тестами
+
+> Тест специально спроектирован на падение, для наглядности.
+> Понимаю, что ошибка отправки смс не баг, а попадание номера в спам фильтр.
+> 
+> P.S. Тесты на проде это плохо  :heart:
+
+<p align="center">
+<img title="Allure Behaviors" src="images/screenshots/allure _bug.jpeg">
+</p>
+
+### :pushpin: Основной дашборд
+
+<p align="center">
+<img width="30%"  title="Allure Overview Dashboard" src="images/screenshots/graphs.jpg">
+</p>
+
+## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
+
+> После завершения сборки бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом.
+<p align="center">
+<img width="30%"  title="Telegram Notifications" src="images/screenshots/telegram_bot.jpg">
+</p>
+
+## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
+
+> К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
+<p align="center">
+  <img title="Selenoid Video" src="images/gif/3a733d1519d41281.gif">
+</p>
+
+:blue_heart: <a target="_blank" href="https://t.me/YuriyMqa">t.me/dmitrishin13</a>
