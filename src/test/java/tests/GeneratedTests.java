@@ -13,7 +13,7 @@ public class GeneratedTests extends TestBase {
 
     @Test
     @DisplayName("Page title should have header text")
-    void titleTest() {
+    void checkHeaderTest() {
         step("Page title should have text 'Разработка программного обеспечения • Прикладные технологии'", () -> {
             String expectedTitle = "Разработка программного обеспечения • Прикладные технологии";
             String actualTitle = title();
@@ -35,7 +35,7 @@ public class GeneratedTests extends TestBase {
 
     @Test
     @DisplayName("Change language")
-    void searchMovieTest() {
+    void changeLanguageTest() {
         step("Change language", () -> {
             mainPage.changeLanguageToEn();
         });
@@ -59,7 +59,7 @@ public class GeneratedTests extends TestBase {
 
     @Test
     @DisplayName("Open Feedback page")
-    void ticketsMenuOpenTest() {
+    void openFeedbackPageTest() {
         step("Press on 'Feedback' button", () -> {
             mainPage.chooseFeedbackPage();
         });
