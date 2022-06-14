@@ -12,7 +12,7 @@ public class DriverSettings {
 
     public static void configure() {
 
-        Configuration.baseUrl = "https://www.kinopoisk.ru/";
+        Configuration.baseUrl = "https://www.appliedtech.ru/";
         Configuration.browser = Project.config.browser();
         Configuration.browserVersion = Project.config.browserVersion();
         Configuration.browserSize = Project.config.browserSize();

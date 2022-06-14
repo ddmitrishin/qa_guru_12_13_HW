@@ -12,8 +12,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import pages.FeedbackPage;
 import pages.MainPage;
-import pages.OnlineTheatrePage;
+import pages.PartnersPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
@@ -23,7 +24,8 @@ import static io.qameta.allure.Allure.step;
 public class TestBase {
 
     MainPage mainPage = new MainPage();
-    OnlineTheatrePage  onlineTheatrePage = new OnlineTheatrePage();
+    PartnersPage partnersPage = new PartnersPage();
+    FeedbackPage feedbackPage = new FeedbackPage();
 
     @BeforeAll
     static void beforeAll() {
@@ -33,7 +35,7 @@ public class TestBase {
 
     @BeforeEach
     public void openMainPage() {
-        step("open kinopoisk.ru", () -> {
+        step("open https://www.appliedtech.ru/", () -> {
             open("");
         });
 

@@ -3,41 +3,34 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
-import static tests.TestData.movieName;
 
 public class MainPage {
-    private final SelenideElement searchField = $(".styles_searchInputElement__qNbS4");
-    private final SelenideElement onlineMovieButton = $(by("data-tid", "de7c6530"));
-    private final SelenideElement movieNameButton = $(byText(movieName));
-    private final SelenideElement movieNameText = $(by("data-tid", "75209b22"));
-    private final SelenideElement ticketsMenu = $(by("data-tid", "6a319a9e"));
-    private final SelenideElement tiketsMenuTitle = $(".level2");
+    private final SelenideElement landuageSelector = $(".language-selector__current");
+    private final SelenideElement landuageENSelector = $(".language-selector__goto-language");
+    private final SelenideElement mainTitle = $(".hero__title");
+    private final SelenideElement partnersButton = $(withText("Все наши партнёры"));
+    private final SelenideElement aboutCompanyButton = $(byText("О компании"));
+    private final SelenideElement feedbackButton = $(byText("Отзывы"));
 
-    public void searchMovie(String movieName) {
-        searchField.setValue(movieName).pressEnter();
+    public void changeLanguageToEn() {
+        landuageSelector.click();
+        landuageENSelector.click();
     }
 
-    public void pressOnMovieButton() {
-        movieNameButton.click();
+    public void checkEnLanguage() {
+        mainTitle.shouldHave(text("Software development"));
     }
 
-    public void openOnlineTheatre() {
-        onlineMovieButton.click();
+    public void openPartnersPage() {
+        partnersButton.click();
     }
 
-    public void checkMovieName() {
-        movieNameText.shouldHave(text(movieName));
-    }
-
-    public void openTicketsMenu() {
-        ticketsMenu.click();
-    }
-
-    public void checkTicketsMenuTitle() {
-        tiketsMenuTitle.shouldHave(text("Билеты в кино"));
+    public void chooseFeedbackPage() {
+        aboutCompanyButton.hover();
+        feedbackButton.click();
     }
 
 }

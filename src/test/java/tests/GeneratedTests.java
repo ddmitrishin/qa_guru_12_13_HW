@@ -4,11 +4,9 @@ import helpers.DriverUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
-import static tests.TestData.movieName;
 
 
 public class GeneratedTests extends TestBase {
@@ -16,11 +14,8 @@ public class GeneratedTests extends TestBase {
     @Test
     @DisplayName("Page title should have header text")
     void titleTest() {
-        step("Open url 'https://www.kinopoisk.ru/'", () ->
-                open("https://www.kinopoisk.ru/"));
-
-        step("Page title should have text 'Кинопоиск. Все фильмы планеты.'", () -> {
-            String expectedTitle = "Кинопоиск. Все фильмы планеты.";
+        step("Page title should have text 'Разработка программного обеспечения • Прикладные технологии'", () -> {
+            String expectedTitle = "Разработка программного обеспечения • Прикладные технологии";
             String actualTitle = title();
 
             assertThat(actualTitle).isEqualTo(expectedTitle);
@@ -30,9 +25,6 @@ public class GeneratedTests extends TestBase {
     @Test
     @DisplayName("Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
-        step("Open url 'https://www.kinopoisk.ru/'", () ->
-                open("https://www.kinopoisk.ru/"));
-
         step("Console logs should not contain text 'SEVERE'", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
             String errorText = "SEVERE";
@@ -42,42 +34,38 @@ public class GeneratedTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Search movie")
+    @DisplayName("Change language")
     void searchMovieTest() {
-        step("Enter movie name", () -> {
-            mainPage.searchMovie(movieName);
+        step("Change language", () -> {
+            mainPage.changeLanguageToEn();
         });
 
-        step("Press on movie name", () -> {
-            mainPage.pressOnMovieButton();
-        });
-
-        step("Check movie name", () -> {
-            mainPage.checkMovieName();
+        step("Check title language", () -> {
+            mainPage.checkEnLanguage();
         });
     }
 
     @Test
-    @DisplayName("Open online theatre")
-    void openOnlineTheatreTest() {
-        step("Press on online Theatre", () -> {
-            mainPage.openOnlineTheatre();
+    @DisplayName("Open partners page")
+    void openPartnersPageTest() {
+        step("Press on 'Our Partners'", () -> {
+            mainPage.openPartnersPage();
         });
 
-        step("Check Online Theatre Title", () -> {
-            onlineTheatrePage.checkOnlineThetreTitle();
+        step("Check partners page title", () -> {
+            partnersPage.checkPartnersTitle();
         });
     }
 
     @Test
-    @DisplayName("Check tickets menu")
+    @DisplayName("Open Feedback page")
     void ticketsMenuOpenTest() {
-        step("Press on tickets menu", () -> {
-            mainPage.openTicketsMenu();
+        step("Press on 'Feedback' button", () -> {
+            mainPage.chooseFeedbackPage();
         });
 
-        step("Check tickets menu title", () -> {
-            mainPage.checkTicketsMenuTitle();
+        step("Check 'Feedback' page title", () -> {
+            feedbackPage.checkFeedbackTitle();
         });
     }
 }
