@@ -112,7 +112,7 @@ clean test
 ## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Главная страница сборки Jenkins
 
 <p align="center">
-  <img src="images/screenshots/main_jenkins.jpeg">
+  <img src="images/screenshots/Screenshot_1_main_jenkins.jpg">
 </p>
 
 ## <img width="4%" title="Allure Report" src="images/logo/Allure_Report.svg"> Отчет о результатах тестирования в Allure Report
@@ -120,34 +120,34 @@ clean test
 ### :pushpin: Главная страница Allure-отчета
 
 <p align="center">
-<img title="Allure Overview" src="images/screenshots/allure_Overview.jpg">
+<img title="Allure Overview" src="images/screenshots/Screenshot_2_allure_report.jpg">
 </p>
 
 ### :pushpin: Страница с тестами
 
 
 <p align="center">
-<img title="Allure Behaviors" src="images/screenshots/allure _bug.jpeg">
+<img title="Allure Behaviors" src="images/screenshots/Screenshot_3_tests.jpg">
 </p>
 
 ### :pushpin: Основной дашборд
 
 <p align="center">
-<img width="30%"  title="Allure Overview Dashboard" src="images/screenshots/graphs.jpg">
+<img width="30%"  title="Allure Overview Dashboard" src="images/screenshots/Screenshot_4_dashboard.jpg">
 </p>
 
 ## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
 
 > После завершения сборки бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом.
 <p align="center">
-<img width="30%"  title="Telegram Notifications" src="images/screenshots/telegram_bot.jpg">
+<img width="30%"  title="Telegram Notifications" src="images/screenshots/Screenshot_5_telegram_bot.jpg">
 </p>
 
 ## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
 
 > К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
 <p align="center">
-  <img title="Selenoid Video" src="images/gif/3a733d1519d41281.gif">
+  <img title="Selenoid Video" src="images/gif/d54cf2c163784ab6.gif">
 </p>
 
 :blue_heart: <a target="_blank" href="https://t.me/YuriyMqa">t.me/dmitrishin13</a>
